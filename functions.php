@@ -7,6 +7,8 @@
  * @package PrimeTour
  */
 
+define( 'THEME_DIR_URL', get_template_directory_uri() );
+
 if ( ! function_exists( 'primetour_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -120,11 +122,33 @@ add_action( 'widgets_init', 'primetour_widgets_init' );
  * Enqueue scripts and styles.
  */
 function primetour_scripts() {
+	wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' );
+	wp_enqueue_style( 'animate', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css' );
+	wp_enqueue_style( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css' );
+	wp_enqueue_style( 'themify-icons', '' );
+	wp_enqueue_style( 'flaticon', '' );
+	wp_enqueue_style( 'fontawesome', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+	wp_enqueue_style( 'magnific-popup', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css' );
+	wp_enqueue_style( 'gijgo', 'https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/css/gijgo.min.css' );
+	wp_enqueue_style( 'nice-select', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css' );
+	wp_enqueue_style( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css' );
 	wp_enqueue_style( 'primetour-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'primetour-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'primetour-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'popper', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'magnific-popup', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'owl-carousel', '//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'masonry', '//cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'nice-select', '//cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'gijgo', '//cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/js/gijgo.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'ajaxchimp', '//cdnjs.cloudflare.com/ajax/libs/jquery-ajaxchimp/1.3.0/jquery.ajaxchimp.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'jquery-form', '//cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'jquery-validate', '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'primetour-navigation', THEME_DIR_URL . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'primetour-skip-link-focus-fix', THEME_DIR_URL . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'mail-script', THEME_DIR_URL . '/js/mail-script.js', array(), '20151215', true );
+	wp_enqueue_script( 'contact', THEME_DIR_URL . '/js/contact.js', array(), '20151215', true );
+	wp_enqueue_script( 'custom', THEME_DIR_URL . '/js/custom.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -151,6 +175,16 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Post types.
+ */
+require get_template_directory() . '/inc/post-types.php';
+
+/**
+ * Metaboxes.
+ */
+//require get_template_directory() . '/inc/metaboxes.php';
 
 /**
  * Load Jetpack compatibility file.
