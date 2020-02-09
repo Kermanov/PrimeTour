@@ -41,6 +41,15 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+/**************** extend css start ****************/
+@import url("https://fonts.googleapis.com/css?family=Barlow:400,700|Open+Sans:300,400,600&display=swap");
+.btn_4 {
+  background-image: -webkit-linear-gradient(131deg, #feb47b, #ff7e5f, #ff7e5f, #ff7e5f);
+  background-image: -o-linear-gradient(131deg, #feb47b, #ff7e5f, #ff7e5f, #ff7e5f);
+  background-image: linear-gradient(131deg, #feb47b, #ff7e5f, #ff7e5f, #ff7e5f);
+}
+
+/**************** extend css start ****************/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -548,6 +557,171 @@ input[type=submit]:focus {
   border-color: #aaa #bbb #bbb;
 }
 
+/* Main Button Area css
+============================================================================================ */
+.submit_btn {
+  width: auto;
+  display: inline-block;
+  background: #fff;
+  padding: 0px 50px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 50px;
+  border-radius: 5px;
+  outline: none !important;
+  box-shadow: none !important;
+  text-align: center;
+  border: 1px solid #fdcb9e;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.submit_btn:hover {
+  background: transparent;
+}
+
+.btn_1, .btn_2 {
+  display: inline-block;
+  padding: 13px 30px;
+  border-radius: 0;
+  font-size: 16px;
+  color: #fff;
+  text-transform: capitalize;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-color: #fe5c24;
+  font-weight: 500;
+}
+.btn_1:hover, .btn_2:hover {
+  color: #fff;
+  background-color: #2493e0;
+}
+@media (max-width: 991px) {
+  .btn_1, .btn_2 {
+    padding: 14px 30px;
+  }
+}
+.btn_2 {
+  background-color: #191d34;
+}
+.btn_2:hover {
+  background-color: #fe5c24;
+  color: #fff;
+}
+
+.btn_4 {
+  display: inline-block;
+  padding: 13px 47px;
+  box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+  font-size: 14px;
+  color: #fff;
+  text-transform: capitalize;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 50px;
+  background-size: 300% 100%;
+}
+.btn_4:hover {
+  color: #fff;
+  background-size: 100% 100%;
+}
+@media (max-width: 575px) {
+  .btn_4 {
+    padding: 14px 30px;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .btn_4 {
+    padding: 14px 30px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .btn_4 {
+    padding: 14px 30px;
+  }
+}
+.btn_3 {
+  position: relative;
+  font-weight: 500;
+  color: #2f373d;
+  display: inline-block;
+  z-index: 9;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  line-height: 46px;
+  padding-left: 30px;
+  margin-top: 35px;
+  font-family: "Barlow", sans-serif;
+}
+.btn_3:after {
+  height: 48px;
+  width: 61px;
+  background-color: #e3f1da;
+  position: absolute;
+  content: "";
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+  z-index: -1;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+.btn_3 i {
+  font-size: 12px;
+  margin-left: 11px;
+}
+
+/*=================== custom button rule start ====================*/
+.button {
+  display: inline-block;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 54px;
+  border-radius: 4px;
+  color: #fff;
+  border: 1px solid #fdcb9e;
+  text-transform: uppercase;
+  background-color: #fe5c24;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+@media (max-width: 767px) {
+  .button {
+    font-size: 13px;
+    padding: 9px 24px;
+  }
+}
+.button:hover {
+  color: #fff !important;
+}
+.button-link {
+  letter-spacing: 0;
+  color: #3b1d82;
+  border: 0;
+  padding: 0;
+}
+.button-link:hover {
+  background: transparent;
+  color: #3b1d82;
+}
+.button-header {
+  color: #fff;
+  border-color: #fdcb9e;
+}
+.button-header:hover {
+  background: #b8024c;
+  color: #fff;
+}
+.button-contactForm {
+  color: #fff;
+  border-color: #fdcb9e;
+  padding: 12px 25px;
+}
+/* End Main Button Area css
+============================================================================================ */
 input[type=text],
 input[type=email],
 input[type=url],
@@ -817,6 +991,76 @@ a:hover, a:active {
     padding: 0 !important;
   }
 }
+.sub_menu {
+  background-color: #eaefff;
+  padding: 14px 0px;
+}
+.sub_menu .sub_menu_right_content a {
+  color: #0c3e72;
+  margin: 15px;
+}
+@media (max-width: 575px) {
+  .sub_menu .sub_menu_right_content a {
+    margin: 3px;
+  }
+}
+.sub_menu .sub_menu_right_content i {
+  color: #fe5c24;
+  margin-right: 13px;
+}
+.sub_menu .sub_menu_right_content span {
+  color: #fe5c24;
+  margin-right: 20px;
+}
+@media (max-width: 575px) {
+  .sub_menu .sub_menu_right_content {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .sub_menu .sub_menu_right_content {
+    text-align: center;
+  }
+}
+.sub_menu .sub_menu_social_icon {
+  float: right;
+  text-align: right;
+}
+@media (max-width: 575px) {
+  .sub_menu .sub_menu_social_icon {
+    text-align: center;
+    float: none;
+    margin-top: 15px;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .sub_menu .sub_menu_social_icon {
+    text-align: center;
+    float: none;
+    margin-top: 15px;
+  }
+}
+.sub_menu .sub_menu_social_icon span {
+  margin-left: 15px;
+  color: #0c3e72;
+}
+.sub_menu .sub_menu_social_icon span i {
+  color: #fe5c24;
+  margin-right: 8px;
+}
+.sub_menu .sub_menu_social_icon a {
+  color: #0c3e72;
+  margin-right: 20px;
+}
+@media (max-width: 575px) {
+  .sub_menu .sub_menu_social_icon a {
+    margin-right: 10px;
+  }
+}
+.sub_menu .sub_menu_social_icon a:hover {
+  color: #fe5c24;
+}
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -1068,6 +1312,171 @@ object {
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/
+/**************** common css start ****************/
+body {
+  font-family: "Open Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.message_submit_form:focus {
+  outline: none;
+}
+
+input:hover, input:focus {
+  outline: none !important;
+}
+
+.gray_bg {
+  background-color: #f7f7f7;
+}
+
+.section_padding {
+  padding: 130px 0px;
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .section_padding {
+    padding: 80px 0px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .section_padding {
+    padding: 70px 0px;
+  }
+}
+@media (max-width: 575px) {
+  .section_padding {
+    padding: 70px 0px;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .section_padding {
+    padding: 70px 0px;
+  }
+}
+
+.single_padding_top {
+  padding-top: 130px !important;
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .single_padding_top {
+    padding-top: 70px !important;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .single_padding_top {
+    padding-top: 70px !important;
+  }
+}
+@media (max-width: 575px) {
+  .single_padding_top {
+    padding-top: 70px !important;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .single_padding_top {
+    padding-top: 80px !important;
+  }
+}
+
+.padding_top {
+  padding-top: 130px;
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .padding_top {
+    padding-top: 80px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .padding_top {
+    padding-top: 70px;
+  }
+}
+@media (max-width: 575px) {
+  .padding_top {
+    padding-top: 70px;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .padding_top {
+    padding-top: 70px;
+  }
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+a:hover {
+  color: #ff7e5f;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #0c3e72;
+  font-family: "Open Sans", sans-serif;
+}
+
+p {
+  color: #a2a2a2;
+  font-family: "Open Sans", sans-serif;
+  line-height: 28px;
+  font-size: 16px;
+  margin-bottom: 0px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 44px;
+  line-height: 28px;
+  color: #0c3e72;
+  font-weight: 600;
+  line-height: 1.222;
+}
+@media (max-width: 575px) {
+  h2 {
+    font-size: 22px;
+    line-height: 25px;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  h2 {
+    font-size: 24px;
+    line-height: 25px;
+  }
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 25px;
+}
+@media (max-width: 575px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+
+h5 {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+img {
+  max-width: 100%;
+}
+
+a:focus, .button:focus, button:focus, .btn:focus {
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
 .section_tittle {
   margin-bottom: 73px;
 }
@@ -1237,7 +1646,6 @@ object {
   height: 880px;
   position: relative;
   overflow: hidden;
-  background-image: url(../img/banner_bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

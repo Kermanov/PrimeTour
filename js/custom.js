@@ -1,7 +1,7 @@
-(function ($) {
+($ => {
   "use strict";
 
-  var review = $('.client_review_slider');
+  const review = $('.client_review_slider');
   if (review.length) {
     review.owlCarousel({
       items: 3,
@@ -37,7 +37,7 @@
       }
     });
   }
-  var event = $('.event_slider');
+  const event = $('.event_slider');
   if (event.length) {
     event.owlCarousel({
       items: 1,
@@ -66,7 +66,7 @@
     });
   }
   
-  var nc_select = $('.nc_select');
+  const nc_select = $('.nc_select');
   if(nc_select.length){
     nc_select.niceSelect();
   }
@@ -95,8 +95,8 @@
       '  } .popup-vimeo').magnificPopup();
 
   // menu fixed js code
-  $(window).scroll(function () {
-    var window_top = $(window).scrollTop() + 1;
+  $(window).scroll(() => {
+    const window_top = $(window).scrollTop() + 1;
     if (window_top > 50) {
       $('.main_menu_iner').addClass('menu_fixed animated fadeInDown');
     } else {
@@ -105,11 +105,11 @@
   });
 
 
- //------- Mailchimp js --------//  
-function mailChimp() {
-  $('#mc_embed_signup').find('form').ajaxChimp();
-}
-mailChimp();
+   //------- Mailchimp js --------//
+  function mailChimp() {
+    $('#mc_embed_signup').find('form').ajaxChimp();
+  }
+  mailChimp();
 
 
-}(jQuery));
+})(jQuery);
