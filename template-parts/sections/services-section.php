@@ -1,5 +1,6 @@
 <!--::industries start::-->
 <?php
+global $redux;
 $services = get_posts( array(
     'post_type' => 'services',
     'order' => 'ASC',
@@ -11,8 +12,8 @@ $services = get_posts( array(
         <div class="row justify-content-center">
             <div class="col-xl-6">
                 <div class="section_tittle text-center">
-                    <h2>We offered best services</h2>
-                    <p>Waters make fish every without firmament saw had. Morning air subdue. Our. Air very one. Whales grass is fish whales winged.</p>
+                    <h2><?php echo $redux['section-services-title'] ?></h2>
+                    <p><?php echo $redux['section-services-subtitle'] ?></p>
                 </div>
             </div>
         </div>

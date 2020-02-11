@@ -8,7 +8,7 @@
  *
  * @package PrimeTour
  */
-
+global $redux;
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -38,11 +38,32 @@
                     </div>-->
                     <div class="col-lg-6 col-sm-12 col-md-6">
                         <div class="sub_menu_social_icon">
-                            <a href="<?php //echo $redux['facebook-link']; ?>"><i class="flaticon-facebook"></i></a>
-<!--                            <a href="--><?php //echo $redux['-link']; ?><!--"><i class="flaticon-twitter"></i></a>-->
-<!--                            <a href="--><?php //echo $redux['-link']; ?><!--"><i class="flaticon-skype"></i></a>-->
-                            <a href="<?php //echo $redux['instagram-link']; ?>"><i class="flaticon-instagram"></i></a>
-                            <span><i class="flaticon-phone-call"></i><?php //echo $redux['phone-number']; ?></a></span>
+	                        <?php
+	                        $social_links = array(
+		                        'facebook' => array(
+			                        'link' => $redux['social-link-facebook'],
+			                        'display' => $redux['social-link-facebook-display'],
+		                        ),
+		                        'twitter' => array(
+			                        'link' => $redux['social-link-twitter'],
+			                        'display' => $redux['social-link-twitter-display'],
+		                        ),
+		                        'instagram' => array(
+			                        'link' => $redux['social-link-instagram'],
+			                        'display' => $redux['social-link-instagram-display'],
+		                        ),
+	                        );
+	                        foreach ( $social_links as $type => $social_link ) {
+	                            if ($social_link['display']): ?>
+                                    <a href="<?php echo $social_link['link']; ?>">
+                                        <i class="flaticon-<?php echo $type; ?>"></i>
+                                    </a>
+                                <?php endif;
+	                        }
+	                        ?>
+	                        <?php if ($phone = $redux['phone-number']): ?>
+                                <span><i class="flaticon-phone-call"></i><?php echo $phone; ?></a></span>
+	                        <?php endif; ?>
                         </div>
                     </div>
                 </div>

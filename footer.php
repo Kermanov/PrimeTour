@@ -8,7 +8,7 @@
  *
  * @package PrimeTour
  */
-
+global $redux;
 ?>
 
 </div><!-- #content -->
@@ -19,7 +19,7 @@
         <div class="row justify-content-between">
             <div class="col-sm-6 col-md-5">
                 <div class="single-footer-widget">
-                    <h4>Discover Destination</h4>
+                    <h4><?php echo $redux['section-footer-menu-title'] ?></h4>
 					<?php
 					wp_nav_menu( array(
                         'theme_location' => 'menu-1',
@@ -32,39 +32,54 @@
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="single-footer-widget">
-                    <h4>Subscribe Newsletter</h4>
+                    <h4><?php echo $redux['section-footer-form-title'] ?></h4>
                     <div class="form-wrap" id="mc_embed_signup">
-                        <form target="_blank"
-                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                              method="get" class="form-inline">
-                            <input class="form-control" name="EMAIL" placeholder="Your Email Address"
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
-                                   required="" type="email">
-                            <button class="click-btn btn btn-default text-uppercase"><i class="far fa-paper-plane"></i>
+                        <form target="_blank" class="form-inline">
+                            <input class="form-control" name="phone" placeholder="<?php echo $redux['section-footer-form-placeholder'] ?>"
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = '<?php echo $redux["section-footer-form-placeholder"] ?>'"
+                                   required="" type="tel">
+                            <button class="click-btn btn btn-default text-uppercase">
+                                <i class="far fa-paper-plane"></i>
                             </button>
                             <div style="position: absolute; left: -5000px;">
-                                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+                                <input name="phone-hidden" tabindex="-1" value=""
                                        type="text">
                             </div>
-
                             <div class="info"></div>
                         </form>
                     </div>
-                    <p>Subscribe our newsletter to get update news and offers</p>
+                    <p><?php echo $redux['section-footer-form-subtitle'] ?></p>
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="single-footer-widget footer_icon">
-                    <h4>Contact Us</h4>
-                    <p>4156, New garden, New York, USA
-                        +880 362 352 783</p>
-                    <span>contact@martine.com</span>
+                    <h4><?php echo $redux['section-footer-contact-title'] ?></h4>
+                    <p><?php echo $redux['section-footer-contact-subtitle'] ?></p>
+                    <span><?php echo $redux['section-footer-contact-email'] ?></span>
                     <div class="social-icons">
-                        <a href="#"><i class="ti-facebook"></i></a>
-                        <a href="#"><i class="ti-twitter-alt"></i></a>
-                        <a href="#"><i class="ti-pinterest"></i></a>
-                        <a href="#"><i class="ti-instagram"></i></a>
-                    </div>
+                        <?php
+                        $social_links = array(
+                                'facebook' => array(
+                                        'link' => $redux['social-link-facebook'],
+                                        'display' => $redux['social-link-facebook-display'],
+                                ),
+                                'twitter-alt' => array(
+                                        'link' => $redux['social-link-twitter'],
+                                        'display' => $redux['social-link-twitter-display'],
+                                ),
+                                'instagram' => array(
+                                        'link' => $redux['social-link-instagram'],
+                                        'display' => $redux['social-link-instagram-display'],
+                                ),
+                        );
+                        ?>
+	                    <?php foreach ($social_links as $key => $value): ?>
+		                    <?php if (isset($value['display'])): ?>
+                                <a href="<?php echo $value['link']; ?>">
+                                    <i class="ti-<?php echo $key ?>"></i>
+                                </a>
+		                    <?php endif; ?>
+                        <?php endforeach; ?>
                 </div>
             </div>
         </div>

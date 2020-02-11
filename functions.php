@@ -187,6 +187,11 @@ require get_template_directory() . '/inc/post-types.php';
 //require get_template_directory() . '/inc/metaboxes.php';
 
 /**
+ * Redux config.
+ */
+require get_template_directory() . '/inc/redux-framework/redux-config.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
