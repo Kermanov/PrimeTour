@@ -25,50 +25,6 @@ global $redux;
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'primetour' ); ?></a>
 
     <header class="main_menu">
-        <div class="sub_menu">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <!--<div class="col-lg-6 col-sm-12 col-md-6">
-                        <div class="sub_menu_right_content">
-                            <span>Top destinations</span>
-                            <a href="#">Asia</a>
-                            <a href="#">Europe</a>
-                            <a href="#">America</a>
-                        </div>
-                    </div>-->
-                    <div class="col-lg-6 col-sm-12 col-md-6">
-                        <div class="sub_menu_social_icon">
-	                        <?php
-	                        $social_links = array(
-		                        'facebook' => array(
-			                        'link' => $redux['social-link-facebook'],
-			                        'display' => $redux['social-link-facebook-display'],
-		                        ),
-		                        'twitter' => array(
-			                        'link' => $redux['social-link-twitter'],
-			                        'display' => $redux['social-link-twitter-display'],
-		                        ),
-		                        'instagram' => array(
-			                        'link' => $redux['social-link-instagram'],
-			                        'display' => $redux['social-link-instagram-display'],
-		                        ),
-	                        );
-	                        foreach ( $social_links as $type => $social_link ) {
-	                            if ($social_link['display']): ?>
-                                    <a href="<?php echo $social_link['link']; ?>">
-                                        <i class="flaticon-<?php echo $type; ?>"></i>
-                                    </a>
-                                <?php endif;
-	                        }
-	                        ?>
-	                        <?php if ($phone = $redux['phone-number']): ?>
-                                <span><i class="flaticon-phone-call"></i><?php echo $phone; ?></a></span>
-	                        <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="main_menu_iner">
             <div class="container">
                 <div class="row align-items-center ">
