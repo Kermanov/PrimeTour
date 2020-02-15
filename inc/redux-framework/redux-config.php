@@ -487,7 +487,7 @@ Redux::setSection( $opt_name, array(
 		array(
 			'id'       => 'contact-form-submit-text',
 			'type'     => 'text',
-			'title'    => __( 'Submit buttom text', $text_domain ),
+			'title'    => __( 'Submit button text', $text_domain ),
 			'default'  => 'Submit',
 		),
 		array(
