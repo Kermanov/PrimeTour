@@ -9,31 +9,32 @@ function cmb2_posts_metaboxes() {
 	/**
 	 * Initiate the metabox
 	 */
-	$member = new_cmb2_box( array(
+	$service = new_cmb2_box( array(
 		'id'            => 'service-metabox',
-		'title'         => __( 'Service meta', 'cmb2' ),
-		'object_types'  => array( 'services', ),
+		'title'         => __( 'Additional data', 'cmb2' ),
+		'object_types'  => array( 'services' ),
 		'context'       => 'normal',
 		'priority'      => 'high',
 		'show_names'    => true, // Show field names on the left
-		// 'cmb_styles' => false, // false to disable the CMB stylesheet
-		// 'closed'     => true, // Keep the metabox closed by default
 	) );
 
-	$member->add_field( array(
-		'name'    => 'Excerpt',
-		'desc'    => 'Recommended length ~60 words',
-		'id'      => 'read_less',
-		'type'    => 'wysiwyg',
-		'options' => array(
-			'wpautop' => false,
-			'media_buttons' => false,
-			'tabindex' => 0,
-			'textarea_rows' => 6,
-			'teeny' => false,
-			'tinymce' => true,
-			'quicktags' => true
+	$service->add_field( array(
+		'name'    => 'Cover photo',
+		'id'      => 'cover-photo',
+		'type'    => 'file',
+		'query_args' => array(
+			 'type' => array(
+			 	'image/gif',
+			 	'image/jpeg',
+			 	'image/png',
+			 ),
 		),
-		'after' => 'cmb2_wysiwyg_word_counter',
+		'preview_size' => 'medium',
+	) );
+
+	$service->add_field( array(
+		'name'    => 'Location',
+		'id'      => 'location',
+		'type'    => 'text',
 	) );
 }

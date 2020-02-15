@@ -17,14 +17,18 @@
 	        }
         ];
         const map = new google.maps.Map(document.getElementById('map'), {
-            center: {
-                lat: <?php echo $redux['google-map-lat'] ?>,
-                lng: <?php echo $redux['google-map-lng'] ?>
-            },
+            center: uluru,
             zoom: <?php echo $redux['google-map-zoom'] ?>,
             styles: grayStyles,
             scrollwheel: false
         });
+
+        const marker = new google.maps.Marker({
+            position: uluru,
+            animation: google.maps.Animation.DROP,
+            title: "<?php echo $redux['google-map-marker-title'] ?>"
+        });
+        marker.setMap(map);
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $redux['google-map-api-key']; ?>&callback=initMap">

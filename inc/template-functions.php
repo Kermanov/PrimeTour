@@ -38,36 +38,47 @@ add_action( 'wp_head', 'primetour_pingback_header' );
 
 function handle_ajax_form_submit() {
 	global $redux;
-	$to = $redux['form-receiver-email'];
-	$from = $_REQUEST['email'];
-	$name = $_REQUEST['name'];
-	$subject = $_REQUEST['subject'];
-	$message = $_REQUEST['message'];
+	$data = $_REQUEST['data'];
+	$project_name = trim(get_bloginfo( 'name' ));
+	$recipient_email = trim($redux['section-contact-form-email']);
+	$form_subject = trim($redux['section-contact-form-subject']);
 
-	$headers = "From: " . $from . "\r\n";
-	$headers .= "Reply-To: ". $from . "\r\n";
-	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	if ( !$data && $project_name && $recipient_email && $form_subject ) {
+		echo '';
+		wp_die();
+	}
 
-	$logo = 'img/logo.png';
-	$link = '#';
+	$message = '';
+	$c = true;
+	foreach ( $data as $key => $value ) {
+		if ( $value != "" ) {
+			$message .= "
+				" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
+					<th style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></th>
+					<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
+				</tr>
+				";
+		}
+	}
 
-	$body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Express Mail</title></head><body>";
-	$body .= "<table style='width: 100%;'>";
-	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
-	$body .= "<a href='{$link}'><img src='{$logo}' alt=''></a><br><br>";
-	$body .= "</td></tr></thead><tbody><tr>";
-	$body .= "<td style='border:none;'><strong>Name:</strong> {$name}</td>";
-	$body .= "<td style='border:none;'><strong>Email:</strong> {$from}</td>";
-	$body .= "</tr>";
-	$body .= "<tr><td style='border:none;'><strong>Subject:</strong> {$subject}</td></tr>";
-	$body .= "<tr><td></td></tr>";
-	$body .= "<tr><td colspan='2' style='border:none;'>{$message}</td></tr>";
-	$body .= "</tbody></table>";
-	$body .= "</body></html>";
+	$message = "<table style='width: 100%;'>$message</table>";
 
-	echo mail($to, $subject, $body, $headers);
+	function adopt($text) {
+		return '=?UTF-8?B?'. Base64_encode($text) . '?=';
+	}
+
+	$headers = array(
+		"MIME-Version: 1.0\n",
+		"Content-Type: text/html; charset=utf-8\n",
+		'From: ' . adopt( $project_name ) . " <$recipient_email>\n",
+		"Reply-To: $recipient_email\n",
+	);
+
+	echo wp_mail( $recipient_email, adopt( $form_subject ), $message, $headers );
+	wp_die();
 }
+add_action( 'wp_ajax_send-mail', 'handle_ajax_form_submit' );
+add_action( 'wp_ajax_nopriv_send-mail', 'handle_ajax_form_submit' );
 
 function nav_menu_css_class( $classes, $item, $args, $depth ) {
 	if ( $depth == 0 ) {

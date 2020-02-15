@@ -34,17 +34,13 @@ global $redux;
                 <div class="single-footer-widget">
                     <h4><?php echo $redux['section-footer-form-title'] ?></h4>
                     <div class="form-wrap" id="mc_embed_signup">
-                        <form target="_blank" class="form-inline">
+                        <form target="_blank" class="form-inline" id="footer-form">
                             <input class="form-control" name="phone" placeholder="<?php echo $redux['section-footer-form-placeholder'] ?>"
                                    onfocus="this.placeholder = ''" onblur="this.placeholder = '<?php echo $redux["section-footer-form-placeholder"] ?>'"
                                    required="" type="tel">
                             <button class="click-btn btn btn-default text-uppercase">
                                 <i class="far fa-paper-plane"></i>
                             </button>
-                            <div style="position: absolute; left: -5000px;">
-                                <input name="phone-hidden" tabindex="-1" value=""
-                                       type="text">
-                            </div>
                             <div class="info"></div>
                         </form>
                     </div>
@@ -82,6 +78,7 @@ global $redux;
                         <?php endforeach; ?>
                 </div>
             </div>
+        </div>
         </div>
     </div>
     <div class="container-fluid">

@@ -461,6 +461,54 @@ Redux::setSection( $opt_name, array(
 			'default'  => 'Get in Touch',
 		),
 		array(
+			'id' => 'section-contact-contact-form',
+			'type' => 'section',
+			'title' => __( 'Contact form', $text_domain ),
+			'indent' => true
+		),
+		array(
+			'id'       => 'contact-form-name-placeholder',
+			'type'     => 'text',
+			'title'    => __( 'Name field placeholder', $text_domain ),
+			'default'  => 'Enter your name',
+		),
+		array(
+			'id'       => 'contact-form-email-placeholder',
+			'type'     => 'text',
+			'title'    => __( 'Email field placeholder', $text_domain ),
+			'default'  => 'Enter email',
+		),
+		array(
+			'id'       => 'contact-form-message-placeholder',
+			'type'     => 'text',
+			'title'    => __( 'Message field placeholder', $text_domain ),
+			'default'  => 'Enter message',
+		),
+		array(
+			'id'       => 'contact-form-submit-text',
+			'type'     => 'text',
+			'title'    => __( 'Submit buttom text', $text_domain ),
+			'default'  => 'Submit',
+		),
+		array(
+			'id' => 'section-contact-email-options',
+			'type' => 'section',
+			'title' => __( 'Email options', $text_domain ),
+			'indent' => true
+		),
+		array(
+			'id'       => 'section-contact-form-email',
+			'type'     => 'text',
+			'title'    => __( 'Receiver email', $text_domain ),
+			'default'  => 'email@example.com',
+		),
+		array(
+			'id'       => 'section-contact-form-subject',
+			'type'     => 'text',
+			'title'    => __( 'Form subject', $text_domain ),
+			'default'  => 'Contact us form',
+		),
+		array(
 			'id' => 'section-contact-address',
 			'type' => 'section',
 			'title' => __( 'Address', $text_domain ),

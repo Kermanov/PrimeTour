@@ -85,14 +85,7 @@
     }
   });
 
-  $('.popup-youtube,{\n' +
-      '    // disableOn: 700,\n' +
-      '    type: \'iframe\',\n' +
-      '    mainClass: \'mfp-fade\',\n' +
-      '    removalDelay: 160,\n' +
-      '    preloader: false,\n' +
-      '    fixedContentPos: false\n' +
-      '  } .popup-vimeo').magnificPopup();
+  $('.popup-youtube, .popup-vimeo').magnificPopup();
 
   // menu fixed js code
   $(window).scroll(() => {
@@ -106,10 +99,10 @@
 
 
    //------- Mailchimp js --------//
-  function mailChimp() {
-    $('#mc_embed_signup').find('form').ajaxChimp();
-  }
-  mailChimp();
+  // function mailChimp() {
+  //   $('#mc_embed_signup').find('form').ajaxChimp();
+  // }
+  // mailChimp();
 
 
 })(jQuery);
