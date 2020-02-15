@@ -6,7 +6,6 @@
 				<div class="breadcrumb_iner">
 					<div class="breadcrumb_iner_item text-center">
 						<h2><?php the_title(); ?></h2>
-						<p>home . <?php the_title(); ?></p>
 					</div>
 				</div>
 			</div>
